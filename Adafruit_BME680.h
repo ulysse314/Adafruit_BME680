@@ -27,7 +27,6 @@
 
 #include <Wire.h>
 #include <SPI.h>
-#include <Adafruit_Sensor.h>
 #include <Wire.h>
 #include "bme680.h"
 
@@ -94,11 +93,11 @@ class Adafruit_BME680
     float humidity;
     /** Gas resistor (ohms) assigned after calling performReading() or endReading() **/
     uint32_t gas_resistance;
+    uint8_t i2cAddress() const { return _i2caddr; };
 
   private:
     bool _filterEnabled, _tempEnabled, _humEnabled, _presEnabled, _gasEnabled;
     uint8_t _i2caddr;
-    int32_t _sensorID;
     int8_t _cs;
     unsigned long _meas_start;
     uint16_t _meas_period;

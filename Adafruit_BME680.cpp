@@ -129,8 +129,6 @@ bool Adafruit_BME680::begin(uint8_t addr, bool initSettings) {
 
   if (_cs == -1) {
     // i2c
-    _wire->begin();
-
     gas_sensor.dev_id = addr;
     gas_sensor.intf = BME680_I2C_INTF;
     gas_sensor.read = &i2c_read;
@@ -216,7 +214,7 @@ bool Adafruit_BME680::begin(uint8_t addr, bool initSettings) {
  *  @brief  Performs a reading and returns the ambient temperature.
  *  @return Temperature in degrees Centigrade
  */
-float Adafruit_BME680::readTemperature(void) {
+float Adafruit_BME680::readTemperature() {
   performReading();
   return temperature;
 }
@@ -225,7 +223,7 @@ float Adafruit_BME680::readTemperature(void) {
  *  @brief Performs a reading and returns the barometric pressure.
  *  @return Barometic pressure in Pascals
  */
-float Adafruit_BME680::readPressure(void) {
+float Adafruit_BME680::readPressure() {
   performReading();
   return pressure;
 }
@@ -235,7 +233,7 @@ float Adafruit_BME680::readPressure(void) {
  *  @brief  Performs a reading and returns the relative humidity.
  *  @return Relative humidity as floating point
  */
-float Adafruit_BME680::readHumidity(void) {
+float Adafruit_BME680::readHumidity() {
   performReading();
   return humidity;
 }
@@ -244,7 +242,7 @@ float Adafruit_BME680::readHumidity(void) {
  *  @brief Calculates the resistance of the MOX gas sensor.
  *  @return Resistance in Ohms
  */
-uint32_t Adafruit_BME680::readGas(void) {
+uint32_t Adafruit_BME680::readGas() {
   performReading();
   return gas_resistance;
 }
@@ -276,11 +274,11 @@ float Adafruit_BME680::readAltitude(float seaLevel)
  *          and Adafruit_BME680#gas_resistance member variables
  *  @return True on success, False on failure
  */
-bool Adafruit_BME680::performReading(void) {
+bool Adafruit_BME680::performReading() {
   return endReading();
 }
 
-unsigned long Adafruit_BME680::beginReading(void) {
+unsigned long Adafruit_BME680::beginReading() {
   if (_meas_start != 0) {
     /* A measurement is already in progress */
     return _meas_start + _meas_period;
@@ -330,7 +328,7 @@ unsigned long Adafruit_BME680::beginReading(void) {
   return _meas_start + _meas_period;
 }
 
-bool Adafruit_BME680::endReading(void) {
+bool Adafruit_BME680::endReading() {
   unsigned long meas_end = beginReading();
   if (meas_end == 0) {
     return false;
@@ -394,7 +392,7 @@ bool Adafruit_BME680::endReading(void) {
   return true;
 }
 
-int Adafruit_BME680::remainingReadingMillis(void)
+int Adafruit_BME680::remainingReadingMillis()
 {
     if (_meas_start != 0) {
         /* A measurement is already in progress */
