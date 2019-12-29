@@ -45,8 +45,8 @@
  * @brief Sensor driver for BME680 sensor
  *
  */
-#ifndef BME680_H_
-#define BME680_H_
+#ifndef BME680_UTILS_H
+#define BME680_UTILS_H
 
 /*! CPP guard */
 #ifdef __cplusplus
@@ -55,7 +55,7 @@ extern "C"
 #endif
 
 /* Header includes */
-#include "bme680_defs.h"
+#include "BME680_defs.h"
 
 /** function prototype declarations **/
 
@@ -218,5 +218,5 @@ int8_t bme680_get_sensor_settings(uint16_t desired_settings, struct bme680_dev *
 #ifdef __cplusplus
 }
 #endif /* End of CPP guard */
-#endif /* BME680_H_ */
+#endif /* BME680_UTILS_H */
 /** @}*/

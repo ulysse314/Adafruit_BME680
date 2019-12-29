@@ -20,15 +20,15 @@
  *
  */
 
-#ifndef __BME680_H__
-#define __BME680_H__
+#ifndef BME680_H
+#define BME680_H
 
 #include "Arduino.h"
 
 #include <Wire.h>
 #include <SPI.h>
 #include <Wire.h>
-#include "bme680.h"
+#include "BME680_utils.h"
 
 #define BME680_DEFAULT_ADDRESS       (0x77)     ///< The default I2C address
 #define BME680_DEFAULT_SPIFREQ       (1000000)  ///< The default SPI Clock speed
@@ -107,4 +107,4 @@ class Adafruit_BME680
     struct bme680_dev gas_sensor;
 };
 
-#endif
+#endif  // BME680_H

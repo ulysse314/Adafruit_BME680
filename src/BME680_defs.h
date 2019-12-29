@@ -45,8 +45,8 @@
  * @brief   Sensor driver for BME680 sensor
  */
 
-#ifndef BME680_DEFS_H_
-#define BME680_DEFS_H_
+#ifndef BME680_DEFS_H
+#define BME680_DEFS_H
 
 /** header includes **/
 #ifdef __KERNEL__
@@ -533,6 +533,6 @@ struct	bme680_dev {
 
 
 
-#endif /* BME680_DEFS_H_ */
+#endif /* BME680_DEFS_H */
 /** @}*/
 /** @}*/

@@ -27,7 +27,7 @@
  */
 
 #include "Arduino.h"
-#include "Adafruit_BME680.h"
+#include "BME680.h"
 
 //#define BME680_DEBUG
 
