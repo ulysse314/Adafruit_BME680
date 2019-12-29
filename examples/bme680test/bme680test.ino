@@ -17,8 +17,7 @@
 
 #include <Wire.h>
 #include <SPI.h>
-#include <Adafruit_Sensor.h>
-#include "Adafruit_BME680.h"
+#include "BME680.h"
 
 #define BME_SCK 13
 #define BME_MISO 12
@@ -27,13 +26,22 @@
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
-Adafruit_BME680 bme; // I2C
-//Adafruit_BME680 bme(BME_CS); // hardware SPI
-//Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
+BME680 bme(0x76, &Wire); // I2C
+//BME680 bme(BME_CS); // hardware SPI
+//BME680 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(111500);
   while (!Serial);
+
+  int i = 5;
+  while (i > 0) {
+    Serial.print("Count down ");
+    Serial.println(i);
+    delay(1000);
+    --i;
+  }
+
   Serial.println(F("BME680 test"));
 
   if (!bme.begin()) {
