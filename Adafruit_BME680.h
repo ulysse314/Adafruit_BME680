@@ -44,11 +44,11 @@ class Adafruit_BME680
     /** Value returned by remainingReadingMillis indicating asynchronous reading is complete and calling endReading will not block. **/
     static constexpr int reading_complete = 0;
 
-    Adafruit_BME680(TwoWire *theWire = &Wire);
+    Adafruit_BME680(uint8_t addr = BME680_DEFAULT_ADDRESS, TwoWire *theWire = &Wire);
     Adafruit_BME680(int8_t cspin, SPIClass *theSPI = &SPI);
     Adafruit_BME680(int8_t cspin, int8_t mosipin, int8_t misopin, int8_t sckpin);
 
-    bool  begin(uint8_t addr = BME680_DEFAULT_ADDRESS, bool initSettings = true);
+    bool  begin(bool initSettings = true);
     float readTemperature();
     float readPressure();
     float readHumidity();

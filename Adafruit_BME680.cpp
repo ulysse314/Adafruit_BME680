@@ -57,10 +57,11 @@ static void delay_msec(uint32_t ms);
  *  @param  *theWire
  *          optional Wire object
  */
-Adafruit_BME680::Adafruit_BME680(TwoWire *theWire)
-  : _cs(-1)
-  , _meas_start(0)
-  , _meas_period(0)
+Adafruit_BME680::Adafruit_BME680(uint8_t addr, TwoWire *theWire)
+  : _i2caddr(addr),
+    _cs(-1),
+    _meas_start(0),
+    _meas_period(0)
 {
   _wire = theWire;
   _BME680_SoftwareSPI_MOSI = -1;
@@ -124,12 +125,10 @@ Adafruit_BME680::Adafruit_BME680(int8_t cspin, int8_t mosipin, int8_t misopin, i
  *          Default is true.
  *  @return True on sensor initialization success. False on failure.
  */
-bool Adafruit_BME680::begin(uint8_t addr, bool initSettings) {
-  _i2caddr = addr;
-
+bool Adafruit_BME680::begin(bool initSettings) {
   if (_cs == -1) {
     // i2c
-    gas_sensor.dev_id = addr;
+    gas_sensor.dev_id = _i2caddr;
     gas_sensor.intf = BME680_I2C_INTF;
     gas_sensor.read = &i2c_read;
     gas_sensor.write = &i2c_write;
