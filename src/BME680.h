@@ -1,5 +1,5 @@
 /*!
- * @file Adafruit_BME680.h
+ * @file BME680.h
  *
  * Adafruit BME680 temperature, humidity, barometric pressure and gas sensor driver
  *
@@ -33,10 +33,10 @@
 #define BME680_DEFAULT_ADDRESS       (0x77)     ///< The default I2C address
 #define BME680_DEFAULT_SPIFREQ       (1000000)  ///< The default SPI Clock speed
 
-/*! Adafruit_BME680 Class for both I2C and SPI usage.
+/*! BME680 Class for both I2C and SPI usage.
  *  Wraps the Bosch library for Arduino usage
  */
-class Adafruit_BME680
+class BME680
 {
   public:
     /** Value returned by remainingReadingMillis indicating no asynchronous reading has been initiated by beginReading. **/
@@ -44,9 +44,9 @@ class Adafruit_BME680
     /** Value returned by remainingReadingMillis indicating asynchronous reading is complete and calling endReading will not block. **/
     static constexpr int reading_complete = 0;
 
-    Adafruit_BME680(uint8_t addr = BME680_DEFAULT_ADDRESS, TwoWire *theWire = &Wire);
-    Adafruit_BME680(int8_t cspin, SPIClass *theSPI = &SPI);
-    Adafruit_BME680(int8_t cspin, int8_t mosipin, int8_t misopin, int8_t sckpin);
+    BME680(uint8_t addr = BME680_DEFAULT_ADDRESS, TwoWire *theWire = &Wire);
+    BME680(int8_t cspin, SPIClass *theSPI = &SPI);
+    BME680(int8_t cspin, int8_t mosipin, int8_t misopin, int8_t sckpin);
 
     bool  begin(bool initSettings = true);
     float readTemperature();
@@ -79,7 +79,7 @@ class Adafruit_BME680
     /*! @brief  Get remaining time for an asynchronous reading.
      *          If the asynchronous reading is still in progress, how many millis until its completion.
      *          If the asynchronous reading is completed, 0.
-     *          If no asynchronous reading has started, -1 or Adafruit_BME680::reading_not_started.
+     *          If no asynchronous reading has started, -1 or BME680::reading_not_started.
      *          Does not block.
      *  @return Remaining millis until endReading will not block if invoked.
      */

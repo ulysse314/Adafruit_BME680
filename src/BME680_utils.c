@@ -39,10 +39,10 @@
  * No license is granted by implication or otherwise under any patent or
  * patent rights of the copyright holder.
  *
- * File		  bme680.c
+ * File		  BME680_utils.c
  * @date	  19 Jun 2018
  * @version	3.5.9
- * @file    bme680.c
+ * @file    BME680_utils.c
  */
 
 #include "BME680_utils.h"
