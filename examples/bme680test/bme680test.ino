@@ -31,6 +31,7 @@ BME680 bme(0x76, &Wire); // I2C
 //BME680 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
 
 void setup() {
+  Wire.begin();
   Serial.begin(111500);
   while (!Serial);
 
