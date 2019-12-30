@@ -48,14 +48,13 @@
 #ifndef BME680_UTILS_H
 #define BME680_UTILS_H
 
+#include "BME680_defs.h"
+
 /*! CPP guard */
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-/* Header includes */
-#include "BME680_defs.h"
 
 /** function prototype declarations **/
 
