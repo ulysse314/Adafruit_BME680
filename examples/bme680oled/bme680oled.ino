@@ -17,8 +17,7 @@
 
 #include <Wire.h>
 #include <SPI.h>
-#include <Adafruit_Sensor.h>
-#include "Adafruit_BME680.h"
+#include "BME680.h"
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
@@ -29,9 +28,9 @@
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
-Adafruit_BME680 bme; // I2C
-//Adafruit_BME680 bme(BME_CS); // hardware SPI
-//Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
+BME680 bme(0x76, &Wire); // I2C
+//BME680 bme(BME_CS); // hardware SPI
+//BME680 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
 
 Adafruit_SSD1306 display = Adafruit_SSD1306();
 
