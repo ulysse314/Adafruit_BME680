@@ -32,7 +32,7 @@ Adafruit_BME680 bme; // I2C
 //Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial);
   Serial.println(F("BME680 async test"));
 

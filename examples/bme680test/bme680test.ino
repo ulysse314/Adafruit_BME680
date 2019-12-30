@@ -32,7 +32,7 @@ BME680 bme(0x76, &Wire); // I2C
 
 void setup() {
   Wire.begin();
-  Serial.begin(111500);
+  Serial.begin(115200);
   while (!Serial);
 
   int i = 5;
