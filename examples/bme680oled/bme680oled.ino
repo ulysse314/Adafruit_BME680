@@ -35,6 +35,7 @@ BME680 bme(0x76, &Wire); // I2C
 Adafruit_SSD1306 display = Adafruit_SSD1306();
 
 void setup() {
+  Wire.begin();
   Serial.begin(115200);
   Serial.println(F("BME680 test"));
 
